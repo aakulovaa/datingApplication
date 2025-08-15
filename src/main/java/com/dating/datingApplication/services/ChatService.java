@@ -9,8 +9,8 @@ public interface ChatService {
     List<Chat> findAllChats();
     Chat createChat(Chat chat);
     Chat updateChat(Chat chat);
-    Chat findByChatMatch(Match chatMatch);
+    Chat findByChatMatchId(Integer matchId);
     Chat findByChatId(Integer chatId);
-    void deleteChat(Chat chat);
-    void deleteChatByChatMatch(Match chatMatch);
+    void deleteChat(Integer chatId);
+    void deleteChatByChatMatchId(Integer matchId);
 }

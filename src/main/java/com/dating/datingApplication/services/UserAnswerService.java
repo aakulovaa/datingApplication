@@ -8,7 +8,7 @@ import java.util.List;
 public interface UserAnswerService {
     List<UserAnswer> findAllUserAnswers();
     UserAnswer createUserAnswer(UserAnswer userAnswer);
-    UserAnswer findByAnswerUser(User user);
+    UserAnswer findByAnswerUserId(Integer userId);
     UserAnswer findByAnswerId(Integer answerId);
-    void deleteUserAnswer(UserAnswer userAnswer);
+    void deleteUserAnswer(Integer answerId);
 }

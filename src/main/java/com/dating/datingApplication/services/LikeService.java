@@ -9,8 +9,8 @@ public interface LikeService {
     List<Like> findAllLikes();
     Like createLike(Like like);
     Like updateLike(Like like);
-    Like findByLikeFromUser(User likeFromUser);
-    Like findByLikeToUser(User likeToUser);
+    Like findByLikeFromUserId(Integer userId);
+    Like findByLikeToUserId(Integer userId);
     Like findByLikeId(Integer likeId);
-    void deleteLike(Like like);
+    void deleteLike(Integer likeId);
 }

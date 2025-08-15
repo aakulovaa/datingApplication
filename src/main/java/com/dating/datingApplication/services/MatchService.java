@@ -9,8 +9,8 @@ public interface MatchService {
     List<Match> findAllMatches();
     Match createMatch(Match match);
     Match updateMatch(Match match);
-    Match findByMatchFirstUser(User matchFirstUser);
-    Match findByMatchSecondUser(User matchSecondUser);
+    Match findByMatchFirstUserId(Integer userId);
+    Match findByMatchSecondUserId(Integer userId);
     Match findByMatchId(Integer matchId);
-    void deleteMatch(Match match);
+    void deleteMatch(Integer matchId);
 }

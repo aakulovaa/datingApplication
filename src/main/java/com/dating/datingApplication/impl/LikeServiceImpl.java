@@ -32,13 +32,13 @@ public class LikeServiceImpl implements LikeService {
     }
 
     @Override
-    public Like findByLikeFromUser(User likeFromUser) {
-        return likeRepository.findLikeByLikeFromUser(likeFromUser);
+    public Like findByLikeFromUserId(Integer userId) {
+        return likeRepository.findLikeByLikeFromUser_UserId(userId);
     }
 
     @Override
-    public Like findByLikeToUser(User likeToUser) {
-        return likeRepository.findLikeByLikeToUser(likeToUser);
+    public Like findByLikeToUserId(Integer userId) {
+        return likeRepository.findLikeByLikeToUser_UserId(userId);
     }
 
     @Override
@@ -47,7 +47,7 @@ public class LikeServiceImpl implements LikeService {
     }
 
     @Override
-    public void deleteLike(Like like) {
-        likeRepository.delete(findByLikeId(like.getLikeId()));
+    public void deleteLike(Integer likeId) {
+        likeRepository.delete(findByLikeId(likeId));
     }
 }

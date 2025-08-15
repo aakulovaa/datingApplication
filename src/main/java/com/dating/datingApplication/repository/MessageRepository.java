@@ -8,10 +8,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Integer> {
-    Message findMessageByMessageChat(Chat messageChat);
-    Message findMessageByMessageSender(User messageSender);
+    Message findMessageByMessageChat_ChatId(Integer chatId);
+    Message findMessageByMessageSender_UserId(Integer userId);
     Message findMessageByMessageId(Integer messageId);
 
-    void deleteMessageByMessageChat(Chat messageChat);
-    void deleteMessageByMessageSender(User messageSender);
+    void deleteMessageByMessageChat_ChatId(Integer chatId);
+    void deleteMessageByMessageSender_UserId(Integer userId);
 }

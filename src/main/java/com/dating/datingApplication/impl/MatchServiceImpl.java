@@ -32,22 +32,22 @@ public class MatchServiceImpl implements MatchService {
     }
 
     @Override
-    public Match findByMatchFirstUser(User matchFirstUser) {
-        return matchRepository.findMatchByMatchFirstUser(matchFirstUser);
+    public Match findByMatchFirstUserId(Integer userId) {
+        return matchRepository.findMatchByMatchFirstUser_UserId(userId);
     }
 
     @Override
-    public Match findByMatchSecondUser(User matchSecondUser) {
-        return matchRepository.findMatchByMatchSecondUser(matchSecondUser);
+    public Match findByMatchSecondUserId(Integer userId) {
+        return matchRepository.findMatchByMatchSecondUser_UserId(userId);
     }
 
     @Override
     public Match findByMatchId(Integer matchId) {
-        return matchRepository.findMathByMathId(matchId);
+        return matchRepository.findMathByMatchId(matchId);
     }
 
     @Override
-    public void deleteMatch(Match match) {
-        matchRepository.delete(findByMatchId(match.getMatchId()));
+    public void deleteMatch(Integer matchId) {
+        matchRepository.delete(findByMatchId(matchId));
     }
 }

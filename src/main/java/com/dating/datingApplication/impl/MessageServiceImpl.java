@@ -33,13 +33,13 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public Message findByMessageChat(Chat messageChat) {
-        return messageRepository.findMessageByMessageChat(messageChat);
+    public Message findByMessageChatId(Integer chatId) {
+        return messageRepository.findMessageByMessageChat_ChatId(chatId);
     }
 
     @Override
-    public Message findByMessageSender(User messageSender) {
-        return messageRepository.findMessageByMessageSender(messageSender);
+    public Message findByMessageSenderId(Integer userId) {
+        return messageRepository.findMessageByMessageSender_UserId(userId);
     }
 
     @Override
@@ -48,17 +48,17 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public void deleteMessage(Message message) {
-        messageRepository.delete(findByMessageId(message.getMessageId()));
+    public void deleteMessage(Integer messageId) {
+        messageRepository.delete(findByMessageId(messageId));
     }
 
     @Override
-    public void deleteMessageByMessageChat(Chat messageChat) {
-        messageRepository.deleteMessageByMessageChat(messageChat);
+    public void deleteMessageByMessageChatId(Integer chatId) {
+        messageRepository.deleteMessageByMessageChat_ChatId(chatId);
     }
 
     @Override
-    public void deleteMessageByMessageSender(User messageSender) {
-
+    public void deleteMessageByMessageSenderId(Integer userId) {
+        messageRepository.deleteMessageByMessageSender_UserId(userId);
     }
 }

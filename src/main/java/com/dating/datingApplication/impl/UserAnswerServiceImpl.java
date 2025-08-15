@@ -27,8 +27,8 @@ public class UserAnswerServiceImpl implements UserAnswerService {
     }
 
     @Override
-    public UserAnswer findByAnswerUser(User user) {
-        return userAnswerRepository.findAnswerByAnswerUser(user);
+    public UserAnswer findByAnswerUserId(Integer userId) {
+        return userAnswerRepository.findAnswerByAnswerUser_UserId(userId);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class UserAnswerServiceImpl implements UserAnswerService {
     }
 
     @Override
-    public void deleteUserAnswer(UserAnswer userAnswer) {
-        userAnswerRepository.delete(findByAnswerId(userAnswer.getAnswerId()));
+    public void deleteUserAnswer(Integer answerId) {
+        userAnswerRepository.delete(findByAnswerId(answerId));
     }
 }

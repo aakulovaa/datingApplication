@@ -32,8 +32,8 @@ public class ChatServiceImpl implements ChatService {
     }
 
     @Override
-    public Chat findByChatMatch(Match chatMatch) {
-        return chatRepository.findChatByChatMatch(chatMatch);
+    public Chat findByChatMatchId(Integer matchId) {
+        return chatRepository.findChatByChatMatch_MatchId(matchId);
     }
 
     @Override
@@ -42,12 +42,12 @@ public class ChatServiceImpl implements ChatService {
     }
 
     @Override
-    public void deleteChat(Chat chat) {
-        chatRepository.delete(findByChatId(chat.getChatId()));
+    public void deleteChat(Integer chatId) {
+        chatRepository.delete(findByChatId(chatId));
     }
 
     @Override
-    public void deleteChatByChatMatch(Match chatMatch) {
-        chatRepository.deleteChatByChatMatch(chatMatch);
+    public void deleteChatByChatMatchId(Integer matchId) {
+        chatRepository.deleteChatByChatMatch_MatchId(matchId);
     }
 }
