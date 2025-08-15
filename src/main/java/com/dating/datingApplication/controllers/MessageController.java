@@ -1,9 +1,9 @@
 package com.dating.datingApplication.controllers;
 
-import com.dating.datingApplication.models.Chat;
 import com.dating.datingApplication.models.Message;
 import com.dating.datingApplication.services.MessageService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,6 +12,7 @@ import java.util.List;
 @RequestMapping("api/v1/messages")
 @AllArgsConstructor
 public class MessageController {
+    @Autowired
     private MessageService messageService;
 
     @GetMapping

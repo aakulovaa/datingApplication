@@ -22,6 +22,8 @@ public class Match {
     @OneToOne(mappedBy = "chatMatch", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Chat matchChat;
 
+    public Match(){}
+
     public Match(Integer matchId, User matchFirstUser, User matchSecondUser, Chat matchChat) {
         this.matchId = matchId;
         this.matchFirstUser = matchFirstUser;

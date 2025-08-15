@@ -1,8 +1,6 @@
 package com.dating.datingApplication.repository;
 
-import com.dating.datingApplication.models.Chat;
 import com.dating.datingApplication.models.Message;
-import com.dating.datingApplication.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

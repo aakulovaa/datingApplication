@@ -3,6 +3,7 @@ package com.dating.datingApplication.controllers;
 import com.dating.datingApplication.models.Chat;
 import com.dating.datingApplication.services.ChatService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 @RequestMapping("api/v1/chats")
 @AllArgsConstructor
 public class ChatController {
+    @Autowired
     private ChatService chatService;
 
     @GetMapping

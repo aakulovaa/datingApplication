@@ -21,6 +21,8 @@ public class Message {
 
     private String messageText;
 
+    public Message(){}
+
     public Message(Integer messageId, Chat messageChat, User messageSender, String messageText) {
         this.messageId = messageId;
         this.messageChat = messageChat;

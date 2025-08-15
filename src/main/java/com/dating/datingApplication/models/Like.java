@@ -19,6 +19,8 @@ public class Like {
     @JoinColumn(name = "like_to_user_id", nullable = false)
     private User likeToUser;
 
+    public Like(){}
+
     public Like(Integer likeId, User likeFromUser, User likeToUser) {
         this.likeId = likeId;
         this.likeFromUser = likeFromUser;

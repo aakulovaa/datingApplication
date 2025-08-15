@@ -1,11 +1,10 @@
 package com.dating.datingApplication.impl;
 
-import com.dating.datingApplication.models.Chat;
 import com.dating.datingApplication.models.Message;
-import com.dating.datingApplication.models.User;
 import com.dating.datingApplication.repository.MessageRepository;
 import com.dating.datingApplication.services.MessageService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +14,7 @@ import java.util.List;
 @Primary
 @AllArgsConstructor
 public class MessageServiceImpl implements MessageService {
+    @Autowired
     private MessageRepository messageRepository;
 
     @Override

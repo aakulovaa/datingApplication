@@ -1,7 +1,6 @@
 package com.dating.datingApplication.services;
 
 import com.dating.datingApplication.models.Match;
-import com.dating.datingApplication.models.User;
 
 import java.util.List;
 

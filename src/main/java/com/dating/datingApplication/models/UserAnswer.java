@@ -23,6 +23,8 @@ public class UserAnswer {
     @JoinColumn(name = "opinion_id", nullable = false)
     private AnswerOpinion answerOpinion;
 
+    public UserAnswer(){}
+
     public UserAnswer(Integer answerId, User answerUser, Question answerQuestion, AnswerOpinion answerOpinion) {
         this.answerId = answerId;
         this.answerUser = answerUser;

@@ -3,6 +3,7 @@ package com.dating.datingApplication.controllers;
 import com.dating.datingApplication.models.Match;
 import com.dating.datingApplication.services.MatchService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 @RequestMapping("api/v1/matches")
 @AllArgsConstructor
 public class MatchController {
+    @Autowired
     private MatchService matchService;
 
     @GetMapping

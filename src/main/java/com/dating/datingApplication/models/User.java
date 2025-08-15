@@ -38,6 +38,8 @@ public class User {
     @OneToMany(mappedBy = "messageSender", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Message> userSenderMessage = new ArrayList<>();
 
+    public User(){}
+
     public User(Integer userId, String userName, String userPhone, String userPassword, Integer userAge, String userGender, String userDescription, String userPhotoUrl, List<UserAnswer> userAnswers, List<Like> userFromLike, List<Like> userToLike, List<Match> userToMatch, List<Match> userFromMatch, List<Message> userSenderMessage) {
         this.userId = userId;
         this.userName = userName;

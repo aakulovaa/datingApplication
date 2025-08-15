@@ -4,6 +4,7 @@ import com.dating.datingApplication.models.User;
 import com.dating.datingApplication.repository.UserRepository;
 import com.dating.datingApplication.services.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Primary
 public class UserServiceImpl implements UserService {
+    @Autowired
     private UserRepository userRepository;
 
     @Override

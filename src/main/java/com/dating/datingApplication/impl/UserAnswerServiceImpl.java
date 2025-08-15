@@ -1,10 +1,10 @@
 package com.dating.datingApplication.impl;
 
-import com.dating.datingApplication.models.User;
 import com.dating.datingApplication.models.UserAnswer;
 import com.dating.datingApplication.repository.UserAnswerRepository;
 import com.dating.datingApplication.services.UserAnswerService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +14,7 @@ import java.util.List;
 @Primary
 @AllArgsConstructor
 public class UserAnswerServiceImpl implements UserAnswerService {
+    @Autowired
     private UserAnswerRepository userAnswerRepository;
 
     @Override

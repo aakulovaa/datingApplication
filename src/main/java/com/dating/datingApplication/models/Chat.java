@@ -21,6 +21,8 @@ public class Chat {
     @OneToMany(mappedBy = "messageChat", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Message> chatMessage = new ArrayList<>();
 
+    public Chat(){}
+
     public Chat(Integer chatId, Match chatMatch, List<Message> chatMessage) {
         this.chatId = chatId;
         this.chatMatch = chatMatch;

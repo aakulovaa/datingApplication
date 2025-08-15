@@ -24,6 +24,8 @@ public class AnswerOpinion {
     @OneToMany(mappedBy = "answerOpinion", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserAnswer> opinionAnswers = new ArrayList<>();
 
+    public AnswerOpinion(){}
+
     public AnswerOpinion(Integer opinionId, Question opinionQuestion, String opinionText, Integer opinionOrder, List<UserAnswer> opinionAnswers) {
         this.opinionId = opinionId;
         this.opinionQuestion = opinionQuestion;

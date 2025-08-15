@@ -1,9 +1,9 @@
 package com.dating.datingApplication.controllers;
 
-import com.dating.datingApplication.models.User;
 import com.dating.datingApplication.models.UserAnswer;
 import com.dating.datingApplication.services.UserAnswerService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,6 +12,7 @@ import java.util.List;
 @RequestMapping("/api/v1/answers")
 @AllArgsConstructor
 public class UserAnswerController {
+    @Autowired
     private UserAnswerService userAnswerService;
 
     @GetMapping

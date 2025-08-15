@@ -22,6 +22,10 @@ public class Question {
     @OneToMany(mappedBy = "opinionQuestion", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AnswerOpinion> questionOpinions = new ArrayList<>();
 
+    public Question(){
+
+    }
+
     public Question(Integer questionId, String questionText, Integer questionOrder, List<UserAnswer> questionAnswers, List<AnswerOpinion> questionOpinions) {
         this.questionId = questionId;
         this.questionText = questionText;

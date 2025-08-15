@@ -3,6 +3,7 @@ package com.dating.datingApplication.controllers;
 import com.dating.datingApplication.models.Like;
 import com.dating.datingApplication.services.LikeService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 @RequestMapping("api/v1/likes")
 @AllArgsConstructor
 public class LikeController {
+    @Autowired
     private LikeService likeService;
 
     @GetMapping
