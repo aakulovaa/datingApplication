@@ -18,4 +18,34 @@ public class Like {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "like_to_user_id", nullable = false)
     private User likeToUser;
+
+    public Like(Integer likeId, User likeFromUser, User likeToUser) {
+        this.likeId = likeId;
+        this.likeFromUser = likeFromUser;
+        this.likeToUser = likeToUser;
+    }
+
+    public Integer getLikeId() {
+        return likeId;
+    }
+
+    public void setLikeId(Integer likeId) {
+        this.likeId = likeId;
+    }
+
+    public User getLikeFromUser() {
+        return likeFromUser;
+    }
+
+    public void setLikeFromUser(User likeFromUser) {
+        this.likeFromUser = likeFromUser;
+    }
+
+    public User getLikeToUser() {
+        return likeToUser;
+    }
+
+    public void setLikeToUser(User likeToUser) {
+        this.likeToUser = likeToUser;
+    }
 }

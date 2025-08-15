@@ -22,4 +22,43 @@ public class UserAnswer {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "opinion_id", nullable = false)
     private AnswerOpinion answerOpinion;
+
+    public UserAnswer(Integer answerId, User answerUser, Question answerQuestion, AnswerOpinion answerOpinion) {
+        this.answerId = answerId;
+        this.answerUser = answerUser;
+        this.answerQuestion = answerQuestion;
+        this.answerOpinion = answerOpinion;
+    }
+
+    public Integer getAnswerId() {
+        return answerId;
+    }
+
+    public void setAnswerId(Integer answerId) {
+        this.answerId = answerId;
+    }
+
+    public User getAnswerUser() {
+        return answerUser;
+    }
+
+    public void setAnswerUser(User answerUser) {
+        this.answerUser = answerUser;
+    }
+
+    public Question getAnswerQuestion() {
+        return answerQuestion;
+    }
+
+    public void setAnswerQuestion(Question answerQuestion) {
+        this.answerQuestion = answerQuestion;
+    }
+
+    public AnswerOpinion getAnswerOpinion() {
+        return answerOpinion;
+    }
+
+    public void setAnswerOpinion(AnswerOpinion answerOpinion) {
+        this.answerOpinion = answerOpinion;
+    }
 }

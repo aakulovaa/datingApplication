@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ChatRepository extends JpaRepository<Chat, Integer> {
     Chat findChatByChatMatch(Match chatMatch);
-
+    Chat findChatByChatId(Integer chatId);
     void deleteChatByChatMatch(Match chatMatch);
 }

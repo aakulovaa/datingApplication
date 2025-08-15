@@ -11,5 +11,6 @@ public interface LikeService {
     Like updateLike(Like like);
     Like findByLikeFromUser(User likeFromUser);
     Like findByLikeToUser(User likeToUser);
-    void deleteLike(Integer likeId);
+    Like findByLikeId(Integer likeId);
+    void deleteLike(Like like);
 }

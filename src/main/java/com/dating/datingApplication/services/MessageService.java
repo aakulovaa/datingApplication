@@ -12,7 +12,8 @@ public interface MessageService {
     Message updeteMessage(Message message);
     Message findByMessageChat(Chat messageChat);
     Message findByMessageSender(User messageSender);
-    void deleteMessage(Integer messageId);
+    Message findByMessageId(Integer messageId);
+    void deleteMessage(Message message);
     void deleteMessageByMessageChat(Chat messageChat);
     void deleteMessageByMessageSender(User messageSender);
 }

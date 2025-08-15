@@ -20,4 +20,43 @@ public class Message {
     private User messageSender;
 
     private String messageText;
+
+    public Message(Integer messageId, Chat messageChat, User messageSender, String messageText) {
+        this.messageId = messageId;
+        this.messageChat = messageChat;
+        this.messageSender = messageSender;
+        this.messageText = messageText;
+    }
+
+    public Integer getMessageId() {
+        return messageId;
+    }
+
+    public void setMessageId(Integer messageId) {
+        this.messageId = messageId;
+    }
+
+    public Chat getMessageChat() {
+        return messageChat;
+    }
+
+    public void setMessageChat(Chat messageChat) {
+        this.messageChat = messageChat;
+    }
+
+    public User getMessageSender() {
+        return messageSender;
+    }
+
+    public void setMessageSender(User messageSender) {
+        this.messageSender = messageSender;
+    }
+
+    public String getMessageText() {
+        return messageText;
+    }
+
+    public void setMessageText(String messageText) {
+        this.messageText = messageText;
+    }
 }

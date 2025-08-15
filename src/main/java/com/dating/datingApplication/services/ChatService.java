@@ -10,6 +10,7 @@ public interface ChatService {
     Chat createChat(Chat chat);
     Chat updateChat(Chat chat);
     Chat findByChatMatch(Match chatMatch);
-    void deleteChat(Integer chatId);
+    Chat findByChatId(Integer chatId);
+    void deleteChat(Chat chat);
     void deleteChatByChatMatch(Match chatMatch);
 }

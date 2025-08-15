@@ -21,4 +21,43 @@ public class Match {
 
     @OneToOne(mappedBy = "chatMatch", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Chat matchChat;
+
+    public Match(Integer matchId, User matchFirstUser, User matchSecondUser, Chat matchChat) {
+        this.matchId = matchId;
+        this.matchFirstUser = matchFirstUser;
+        this.matchSecondUser = matchSecondUser;
+        this.matchChat = matchChat;
+    }
+
+    public Integer getMatchId() {
+        return matchId;
+    }
+
+    public void setMatchId(Integer matchId) {
+        this.matchId = matchId;
+    }
+
+    public User getMatchFirstUser() {
+        return matchFirstUser;
+    }
+
+    public void setMatchFirstUser(User matchFirstUser) {
+        this.matchFirstUser = matchFirstUser;
+    }
+
+    public User getMatchSecondUser() {
+        return matchSecondUser;
+    }
+
+    public void setMatchSecondUser(User matchSecondUser) {
+        this.matchSecondUser = matchSecondUser;
+    }
+
+    public Chat getMatchChat() {
+        return matchChat;
+    }
+
+    public void setMatchChat(Chat matchChat) {
+        this.matchChat = matchChat;
+    }
 }

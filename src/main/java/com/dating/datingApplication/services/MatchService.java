@@ -11,5 +11,6 @@ public interface MatchService {
     Match updateMatch(Match match);
     Match findByMatchFirstUser(User matchFirstUser);
     Match findByMatchSecondUser(User matchSecondUser);
-    void deleteMatch(Integer matchId);
+    Match findByMatchId(Integer matchId);
+    void deleteMatch(Match match);
 }

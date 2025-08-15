@@ -9,5 +9,6 @@ public interface UserAnswerRepository {
     List<UserAnswer> findAllUserAnswers();
     UserAnswer createUserAnswer(UserAnswer userAnswer);
     UserAnswer findByAnswerUser(User user);
-    void deleteUserAnswer(Integer answerId);
+    UserAnswer findByAnswerId(Integer answerId);
+    void deleteUserAnswer(UserAnswer userAnswer);
 }
