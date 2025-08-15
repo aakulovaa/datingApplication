@@ -12,5 +12,5 @@ public interface MessageRepository extends JpaRepository<Message, Integer> {
     Message findMessageByMessageSender(User messageSender);
 
     void deleteMessageByMessageChat(Chat messageChat);
-    void deleteMEssageByMessageSender(User messageSender);
+    void deleteMessageByMessageSender(User messageSender);
 }
