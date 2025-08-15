@@ -5,7 +5,7 @@ import com.dating.datingApplication.models.UserAnswer;
 
 import java.util.List;
 
-public interface UserAnswerRepository {
+public interface UserAnswerService {
     List<UserAnswer> findAllUserAnswers();
     UserAnswer createUserAnswer(UserAnswer userAnswer);
     UserAnswer findByAnswerUser(User user);

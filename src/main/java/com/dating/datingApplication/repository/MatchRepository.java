@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface MatchRepository extends JpaRepository<Match, Integer> {
     Match findMatchByMatchFirstUser(User matchFirstUser);
     Match findMatchByMatchSecondUser(User matchSecondUser);
-    Match findMathBeMathId(Integer matchId);
+    Match findMathByMathId(Integer matchId);
 }
