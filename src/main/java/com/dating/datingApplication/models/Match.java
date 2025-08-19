@@ -1,5 +1,6 @@
 package com.dating.datingApplication.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,6 +21,7 @@ public class Match {
     private User matchSecondUser;
 
     @OneToOne(mappedBy = "chatMatch", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private Chat matchChat;
 
     public Match(){}

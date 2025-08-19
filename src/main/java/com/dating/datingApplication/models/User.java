@@ -1,5 +1,6 @@
 package com.dating.datingApplication.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -22,20 +23,26 @@ public class User {
     private String userPhotoUrl;
 
     @OneToMany(mappedBy = "answerUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<UserAnswer> userAnswers = new ArrayList<>();
 
     @OneToMany(mappedBy = "likeFromUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Like> userFromLike = new ArrayList<>();
 
     @OneToMany(mappedBy = "likeToUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Like> userToLike = new ArrayList<>();
 
     @OneToMany(mappedBy = "matchFirstUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Match> userToMatch = new ArrayList<>();
     @OneToMany(mappedBy = "matchSecondUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Match> userFromMatch = new ArrayList<>();
 
     @OneToMany(mappedBy = "messageSender", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Message> userSenderMessage = new ArrayList<>();
 
     public User(){}

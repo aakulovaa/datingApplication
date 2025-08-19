@@ -1,5 +1,6 @@
 package com.dating.datingApplication.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,10 +16,11 @@ public class Chat {
     private Integer chatId;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "match_id", unique = true)
+    @JoinColumn(name = "match_id", unique = true) // unique = true делает ее по смыслу OneToOne
     private Match chatMatch;
 
     @OneToMany(mappedBy = "messageChat", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Message> chatMessage = new ArrayList<>();
 
     public Chat(){}

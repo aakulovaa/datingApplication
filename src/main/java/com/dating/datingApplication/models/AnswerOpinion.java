@@ -1,5 +1,6 @@
 package com.dating.datingApplication.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -22,6 +23,7 @@ public class AnswerOpinion {
     private Integer opinionOrder;
 
     @OneToMany(mappedBy = "answerOpinion", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<UserAnswer> opinionAnswers = new ArrayList<>();
 
     public AnswerOpinion(){}
