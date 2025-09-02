@@ -1,12 +1,15 @@
 package com.dating.datingApplication.controllers;
 
+import com.dating.datingApplication.dto.MessageDTO;
 import com.dating.datingApplication.models.Message;
 import com.dating.datingApplication.services.MessageService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/messages")
@@ -20,15 +23,16 @@ public class MessageController {
         return messageService.findAllMessage();
     }
 
-    @PostMapping("create_message")
-    public String createMessage(@RequestBody Message message) {
-        messageService.createMessage(message);
-        return "The message successfully created";
+    @PostMapping("/create_message")
+    public ResponseEntity<Message> createMessage(@RequestBody MessageDTO messageDTO) {
+        Message createdMessage = messageService.createMessage(messageDTO);
+        return ResponseEntity.ok(createdMessage);
     }
 
-    @PutMapping("update_message")
-    public Message updeteMessage(@RequestBody Message message) {
-        return messageService.updeteMessage(message);
+    @PutMapping("/update_message/{messageId}")
+    public ResponseEntity<Message> updeteMessage(@PathVariable("messageId") Integer messageId,@RequestBody MessageDTO messageDTO) {
+        Message updatedMessage = messageService.updeteMessage(messageId, messageDTO);
+        return ResponseEntity.ok(updatedMessage);
     }
 
     @GetMapping("/chat/{messageChat}")
@@ -36,13 +40,13 @@ public class MessageController {
         return messageService.findByMessageChatId(chatId);
     }
 
-    @GetMapping("/sender/userId")
+    @GetMapping("/sender/{userId}")
     public Message findByMessageSenderId(@PathVariable("userId") Integer userId) {
         return messageService.findByMessageSenderId(userId);
     }
 
     @GetMapping("/{messageId}")
-    public Message findByMessageId(@PathVariable("messageId") Integer messageId) {
+    public Optional<Message> findByMessageId(@PathVariable("messageId") Integer messageId) {
         return messageService.findByMessageId(messageId);
     }
 
@@ -51,13 +55,4 @@ public class MessageController {
         messageService.deleteMessage(messageId);
     }
 
-    @DeleteMapping("/delete_message/chat/{chatId}")
-    public void deleteMessageByMessageChatId(@PathVariable("chatId") Integer chatId) {
-        messageService.deleteMessageByMessageChatId(chatId);
-    }
-
-    @DeleteMapping("/delete_message/sender/{userId}")
-    public void deleteMessageByMessageSenderId(@PathVariable("userId") Integer userId) {
-        messageService.deleteMessageByMessageSenderId(userId);
-    }
 }
