@@ -1,12 +1,15 @@
 package com.dating.datingApplication.controllers;
 
+import com.dating.datingApplication.dto.ChatDTO;
 import com.dating.datingApplication.models.Chat;
 import com.dating.datingApplication.services.ChatService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/chats")
@@ -20,14 +23,16 @@ public class ChatController {
         return chatService.findAllChats();
     }
 
-    @PostMapping("create_chat")
-    public Chat createChat(@RequestBody Chat chat) {
-        return chatService.createChat(chat);
+    @PostMapping("/create_chat")
+    public ResponseEntity<Chat> createChat(@RequestBody ChatDTO chatDTO) {
+        Chat createdChat = chatService.createChat(chatDTO);
+        return ResponseEntity.ok(createdChat);
     }
 
-    @PutMapping("update_chat")
-    public Chat updateChat(@RequestBody Chat chat) {
-        return chatService.updateChat(chat);
+    @PutMapping("/update_chat/{chatId}")
+    public ResponseEntity<Chat> updateChat(@PathVariable("chatId") Integer chatId,@RequestBody ChatDTO chatDTO) {
+        Chat updatedChat = chatService.updateChat(chatId, chatDTO);
+        return ResponseEntity.ok(updatedChat);
     }
 
     @GetMapping("/match/{matchId}")
@@ -35,18 +40,14 @@ public class ChatController {
         return chatService.findByChatMatchId(matchId);
     }
 
-    @GetMapping("/chat/{chatId}")
-    public Chat findByChatId(@PathVariable("chatId") Integer chatId) {
+    @GetMapping("/{chatId}")
+    public Optional<Chat> findByChatId(@PathVariable("chatId") Integer chatId) {
         return chatService.findByChatId(chatId);
     }
 
-    @DeleteMapping("delete_chat")
+    @DeleteMapping("/delete_chat/{chatId}")
     public void deleteChat(@PathVariable("chatId") Integer chatId) {
         chatService.deleteChat(chatId);
     }
 
-    @DeleteMapping("delete_chat/match/{matchId}")
-    public void deleteChatByChatMatchId(Integer matchId) {
-        chatService.deleteChatByChatMatchId(matchId);
-    }
 }

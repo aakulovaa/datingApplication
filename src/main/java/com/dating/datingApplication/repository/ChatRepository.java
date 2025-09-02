@@ -7,6 +7,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ChatRepository extends JpaRepository<Chat, Integer> {
     Chat findChatByChatMatch_MatchId(Integer matchId);
-    Chat findChatByChatId(Integer chatId);
-    void deleteChatByChatMatch_MatchId(Integer matchId);
 }

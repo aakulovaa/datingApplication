@@ -15,7 +15,7 @@ public class Chat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer chatId;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "match_id", unique = true) // unique = true делает ее по смыслу OneToOne
     private Match chatMatch;
 

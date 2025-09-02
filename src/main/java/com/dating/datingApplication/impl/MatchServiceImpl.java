@@ -1,10 +1,8 @@
 package com.dating.datingApplication.impl;
 
 import com.dating.datingApplication.dto.MatchDTO;
-import com.dating.datingApplication.models.Chat;
 import com.dating.datingApplication.models.Match;
 import com.dating.datingApplication.models.User;
-import com.dating.datingApplication.repository.ChatRepository;
 import com.dating.datingApplication.repository.MatchRepository;
 import com.dating.datingApplication.repository.UserRepository;
 import com.dating.datingApplication.services.MatchService;
@@ -22,13 +20,11 @@ import java.util.Optional;
 @AllArgsConstructor
 public class MatchServiceImpl implements MatchService {
     private final UserRepository userRepository;
-    private final ChatRepository chatRepository;
     private final MatchRepository matchRepository;
 
     @Autowired
-    public MatchServiceImpl(UserRepository userRepository, ChatRepository chatRepository, MatchRepository matchRepository) {
+    public MatchServiceImpl(UserRepository userRepository, MatchRepository matchRepository) {
         this.userRepository = userRepository;
-        this.chatRepository = chatRepository;
         this.matchRepository = matchRepository;
     }
 
@@ -58,14 +54,11 @@ public class MatchServiceImpl implements MatchService {
                 .orElseThrow(()->new EntityNotFoundException("First match user not found"));
         User secondUser = userRepository.findById(matchDTO.getMatchSecondUserId())
                 .orElseThrow(()->new EntityNotFoundException("Second match user not found"));
-        Chat chat = chatRepository.findById(matchDTO.getMatchChatId())
-                .orElseThrow(()->new EntityNotFoundException("Chat not found"));
 
         Match match = new Match();
 
         match.setMatchFirstUser(firstUser);
         match.setMatchSecondUser(secondUser);
-        match.setMatchChat(chat);
 
         return matchRepository.save(match);
     }
@@ -79,12 +72,9 @@ public class MatchServiceImpl implements MatchService {
                 .orElseThrow(()->new EntityNotFoundException("First match user not found"));
         User secondUser = userRepository.findById(matchDTO.getMatchSecondUserId())
                 .orElseThrow(()->new EntityNotFoundException("Second match user not found"));
-        Chat chat = chatRepository.findById(matchDTO.getMatchChatId())
-                .orElseThrow(()->new EntityNotFoundException("Chat not found"));
 
         match.setMatchFirstUser(firstUser);
         match.setMatchSecondUser(secondUser);
-        match.setMatchChat(chat);
 
         return matchRepository.save(match);
     }

@@ -4,7 +4,6 @@ public class MatchDTO {
     private Integer matchId;
     private Integer matchFirstUserId;
     private Integer matchSecondUserId;
-    private Integer matchChatId;
 
     public Integer getMatchId() {
         return matchId;
@@ -30,11 +29,4 @@ public class MatchDTO {
         this.matchSecondUserId = matchSecondUserId;
     }
 
-    public Integer getMatchChatId() {
-        return matchChatId;
-    }
-
-    public void setMatchChatId(Integer matchChatId) {
-        this.matchChatId = matchChatId;
-    }
 }
