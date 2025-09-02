@@ -1,14 +1,20 @@
 package com.dating.datingApplication.services;
 
+import com.dating.datingApplication.dto.UserDTO;
 import com.dating.datingApplication.models.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
     List<User> findAllUsers();
-    User findByUserId(Integer userId);
-    User createUser(User user);
-    User findByUserName(String userName);
-    User updateUser(User user);
+
+    Optional<User> findUserByUserId(Integer userId);
+    List<User> findUserByUserName(String userName);
+
+    User createUser(UserDTO userDTO);
+
+    User updateUser(Integer userId, UserDTO userDTO);
+
     void deleteUser(Integer userId);
 }

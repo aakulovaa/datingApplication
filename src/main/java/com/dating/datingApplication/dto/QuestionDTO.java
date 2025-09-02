@@ -1,10 +1,6 @@
-package com.dating.datingApplication.dto.basic;
+package com.dating.datingApplication.dto;
 
-import com.dating.datingApplication.models.Question;
-import lombok.Data;
-
-@Data
-public class QuestionBasicDto {
+public class QuestionDTO {
     private Integer questionId;
     private String questionText;
     private Integer questionOrder;
@@ -31,13 +27,5 @@ public class QuestionBasicDto {
 
     public void setQuestionOrder(Integer questionOrder) {
         this.questionOrder = questionOrder;
-    }
-
-    public static QuestionBasicDto fromEntity(Question question) {
-        QuestionBasicDto dto = new QuestionBasicDto();
-        dto.setQuestionId(question.getQuestionId());
-        dto.setQuestionText(question.getQuestionText());
-        dto.setQuestionOrder(question.getQuestionOrder());
-        return dto;
     }
 }

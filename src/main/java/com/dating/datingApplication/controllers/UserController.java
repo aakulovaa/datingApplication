@@ -1,12 +1,15 @@
 package com.dating.datingApplication.controllers;
 
+import com.dating.datingApplication.dto.UserDTO;
 import com.dating.datingApplication.models.User;
 import com.dating.datingApplication.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/users")
@@ -21,27 +24,29 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public User findByUserId(@PathVariable("userId") Integer userId) {
-        return userService.findByUserId(userId);
+    public ResponseEntity<Optional<User>> findUserByUserId(@PathVariable Integer userId) {
+        Optional<User> user = userService.findUserByUserId(userId);
+        return ResponseEntity.ok(user);
     }
 
-    @PostMapping("create_user")
-    public String createUser(@RequestBody User user) {
-        userService.createUser(user);
-        return "The user successfully created";
+    @GetMapping("/name/{userName}")
+    public List<User> findUserByUserName(@PathVariable("userName") String userName) {
+        return userService.findUserByUserName(userName);
     }
 
-    @GetMapping("{userName}")
-    public User findByUserName(@PathVariable("userName") String userName) {
-        return userService.findByUserName(userName);
+    @PostMapping("/create_user")
+    public ResponseEntity<User> createUser(@RequestBody UserDTO userDTO) {
+        User createdUser = userService.createUser(userDTO);
+        return ResponseEntity.ok(createdUser);
     }
 
-    @PutMapping("update_user")
-    public User updateUser(@RequestBody User user) {
-        return userService.updateUser(user);
+    @PutMapping("/update_user/{userId}")
+    public ResponseEntity<User> updateUser(@PathVariable Integer userId,@RequestBody UserDTO userDTO) {
+        User updatedUser = userService.updateUser(userId, userDTO);
+        return ResponseEntity.ok(updatedUser);
     }
 
-    @DeleteMapping("delete_user/{userId}")
+    @DeleteMapping("/delete_user/{userId}")
     public void deleteUser(@PathVariable("userId") Integer userId) {
         userService.deleteUser(userId);
     }

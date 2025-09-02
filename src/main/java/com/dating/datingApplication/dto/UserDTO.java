@@ -1,12 +1,10 @@
-package com.dating.datingApplication.dto.basic;
+package com.dating.datingApplication.dto;
 
-import com.dating.datingApplication.models.User;
-import lombok.Data;
-
-@Data
-public class UserBasicDto {
+public class UserDTO {
     private Integer userId;
     private String userName;
+    private String userPhone;
+    private String userPassword;
     private Integer userAge;
     private String userGender;
     private String userDescription;
@@ -26,6 +24,22 @@ public class UserBasicDto {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getUserPhone() {
+        return userPhone;
+    }
+
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
     public Integer getUserAge() {
@@ -58,16 +72,5 @@ public class UserBasicDto {
 
     public void setUserPhotoUrl(String userPhotoUrl) {
         this.userPhotoUrl = userPhotoUrl;
-    }
-
-    public static UserBasicDto fromEntity(User user) {
-        UserBasicDto dto = new UserBasicDto();
-        dto.setUserId(user.getUserId());
-        dto.setUserName(user.getUserName());
-        dto.setUserAge(user.getUserAge());
-        dto.setUserGender(user.getUserGender());
-        dto.setUserDescription(user.getUserDescription());
-        dto.setUserPhotoUrl(user.getUserPhotoUrl());
-        return dto;
     }
 }
