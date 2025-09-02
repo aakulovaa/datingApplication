@@ -33,16 +33,6 @@ public class LikeServiceImpl implements LikeService {
         return likeRepository.findAll();
     }
 
-//    @Override
-//    public Like createLike(Like like) {
-//        return likeRepository.save(like);
-//    }
-//
-//    @Override
-//    public Like updateLike(Like like) {
-//        return likeRepository.save(like);
-//    }
-
     @Override
     public Like findByLikeFromUserId(Integer userId) {
         return likeRepository.findLikeByLikeFromUser_UserId(userId);

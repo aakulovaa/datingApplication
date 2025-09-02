@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository;
 public interface LikeRepository extends JpaRepository<Like,Integer> {
     Like findLikeByLikeFromUser_UserId(Integer userId);
     Like findLikeByLikeToUser_UserId(Integer userId);
-//    Like findLikeByLikeId(Integer likeId);
 }

@@ -13,9 +13,6 @@ public interface LikeService {
     Like findByLikeFromUserId(Integer userId);
     Like findByLikeToUserId(Integer userId);
 
-//    Like createLike(Like like);
-//    Like updateLike(Like like);
-
     Like createLike(LikeDTO likeDTO);
     Like updateLike(Integer likeId, LikeDTO likeDTO);
 
