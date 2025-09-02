@@ -11,11 +11,11 @@ public class Like {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer likeId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "like_from_user_id", nullable = false)
     private User likeFromUser;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "like_to_user_id", nullable = false)
     private User likeToUser;
 
