@@ -1,15 +1,20 @@
 package com.dating.datingApplication.services;
 
+import com.dating.datingApplication.dto.MatchDTO;
 import com.dating.datingApplication.models.Match;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface MatchService {
     List<Match> findAllMatches();
-    Match createMatch(Match match);
-    Match updateMatch(Match match);
+
     Match findByMatchFirstUserId(Integer userId);
     Match findByMatchSecondUserId(Integer userId);
-    Match findByMatchId(Integer matchId);
+    Optional<Match> findByMatchId(Integer matchId);
+
+    Match createMatch(MatchDTO matchDTO);
+    Match updateMatch(Integer matchId, MatchDTO matchDTO);
+
     void deleteMatch(Integer matchId);
 }

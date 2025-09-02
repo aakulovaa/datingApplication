@@ -1,12 +1,15 @@
 package com.dating.datingApplication.controllers;
 
+import com.dating.datingApplication.dto.MatchDTO;
 import com.dating.datingApplication.models.Match;
 import com.dating.datingApplication.services.MatchService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/matches")
@@ -20,15 +23,15 @@ public class MatchController {
         return matchService.findAllMatches();
     }
 
-    @PostMapping("create_match")
-    public String createMatch(@RequestBody Match match) {
-        matchService.createMatch(match);
-        return "The match successfully created";
+    @PostMapping("/create_match")
+    public ResponseEntity<Match> createMatch(@RequestBody MatchDTO matchDTO) {
+        Match createdMatch = matchService.createMatch(matchDTO);
+        return ResponseEntity.ok(createdMatch);
     }
 
-    @PutMapping("update_match")
-    public Match updateMatch(@RequestBody Match match) {
-        return matchService.updateMatch(match);
+    @PutMapping("/update_match/{matchId}")
+    public Match updateMatch(@PathVariable("matchId") Integer matchId,@RequestBody MatchDTO matchDTO) {
+        return matchService.updateMatch(matchId,matchDTO);
     }
 
     @PostMapping("/first_user/{userId}")
@@ -42,7 +45,7 @@ public class MatchController {
     }
 
     @PostMapping("{matchId}")
-    public Match findByMatchId(@PathVariable("userId") Integer matchId) {
+    public Optional<Match> findByMatchId(@PathVariable("matchId") Integer matchId) {
         return matchService.findByMatchId(matchId);
     }
 

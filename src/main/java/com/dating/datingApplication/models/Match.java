@@ -12,15 +12,15 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer matchId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "match_first_user_id", nullable = false)
     private User matchFirstUser;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "match_second_user_id", nullable = false)
     private User matchSecondUser;
 
-    @OneToOne(mappedBy = "chatMatch", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "chatMatch", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
     private Chat matchChat;
 
