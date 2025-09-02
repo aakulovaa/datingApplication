@@ -15,7 +15,7 @@ public class AnswerOpinion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer opinionId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "question_id", nullable = false)
     private Question opinionQuestion;
 

@@ -1,13 +1,12 @@
 package com.dating.datingApplication.controllers;
 
+import com.dating.datingApplication.dto.AnswerOpinionDTO;
 import com.dating.datingApplication.models.AnswerOpinion;
 import com.dating.datingApplication.services.AnswerOpinionService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +25,11 @@ public class AnswerOpinionController {
     @GetMapping("/{opinionOrder}")
     public AnswerOpinion findByOpinionOrder(@PathVariable("opinionOrder") Integer opinionOrder) {
         return answerOpinionService.findByOpinionOrder(opinionOrder);
+    }
+
+    @PostMapping("/create_opinion")
+    public ResponseEntity<AnswerOpinion> createAnswerOpinion(@RequestBody AnswerOpinionDTO answerOpinionDTO) {
+        AnswerOpinion createdAnswerOpinion = answerOpinionService.createAnswerOpinion(answerOpinionDTO);
+        return ResponseEntity.ok(createdAnswerOpinion);
     }
 }
