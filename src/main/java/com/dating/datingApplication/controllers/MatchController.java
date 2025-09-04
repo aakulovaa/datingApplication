@@ -34,22 +34,22 @@ public class MatchController {
         return matchService.updateMatch(matchId,matchDTO);
     }
 
-    @PostMapping("/first_user/{userId}")
+    @GetMapping("/first_user/{userId}")
     public Match findByMatchFirstUserId(@PathVariable("userId") Integer userId) {
         return matchService.findByMatchFirstUserId(userId);
     }
 
-    @PostMapping("/second_user/{userId}")
+    @GetMapping("/second_user/{userId}")
     public Match findByMatchSecondUserId(@PathVariable("userId") Integer userId) {
         return matchService.findByMatchSecondUserId(userId);
     }
 
-    @PostMapping("{matchId}")
+    @GetMapping("/{matchId}")
     public Optional<Match> findByMatchId(@PathVariable("matchId") Integer matchId) {
         return matchService.findByMatchId(matchId);
     }
 
-    @DeleteMapping("delete_match")
+    @DeleteMapping("/delete_match/{matchId}")
     public void deleteMatch(@PathVariable("matchId") Integer matchId) {
         matchService.deleteMatch(matchId);
     }

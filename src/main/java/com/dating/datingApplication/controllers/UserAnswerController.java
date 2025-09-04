@@ -42,7 +42,7 @@ public class UserAnswerController {
     }
 
 
-    @DeleteMapping("delete_answer/{answerId}")
+    @DeleteMapping("/delete_answer/{answerId}")
     public void deleteUserAnswer(@PathVariable("answerId") Integer answerId) {
         userAnswerService.deleteUserAnswer(answerId);
     }

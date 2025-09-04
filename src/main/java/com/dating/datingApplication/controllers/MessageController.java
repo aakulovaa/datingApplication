@@ -35,8 +35,8 @@ public class MessageController {
         return ResponseEntity.ok(updatedMessage);
     }
 
-    @GetMapping("/chat/{messageChat}")
-    public Message findByMessageChat(@PathVariable("messageChat") Integer chatId) {
+    @GetMapping("/chat/{chatId}")
+    public Message findByMessageChat(@PathVariable("chatId") Integer chatId) {
         return messageService.findByMessageChatId(chatId);
     }
 
@@ -50,7 +50,7 @@ public class MessageController {
         return messageService.findByMessageId(messageId);
     }
 
-    @DeleteMapping("delete_message/{messageId}")
+    @DeleteMapping("/delete_message/{messageId}")
     public void deleteMessage(@PathVariable("messageId") Integer messageId) {
         messageService.deleteMessage(messageId);
     }
