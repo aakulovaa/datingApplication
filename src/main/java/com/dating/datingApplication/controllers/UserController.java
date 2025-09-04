@@ -34,6 +34,11 @@ public class UserController {
         return userService.findUserByUserName(userName);
     }
 
+    @GetMapping("/name/{userPhone}")
+    public List<User> findUserByUserPhone(@PathVariable("userPhone") String userPhone) {
+        return userService.findUserByUserPhone(userPhone);
+    }
+
     @PostMapping("/create_user")
     public ResponseEntity<User> createUser(@RequestBody UserDTO userDTO) {
         User createdUser = userService.createUser(userDTO);
