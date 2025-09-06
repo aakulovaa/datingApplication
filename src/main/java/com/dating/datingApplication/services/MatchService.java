@@ -9,8 +9,8 @@ import java.util.Optional;
 public interface MatchService {
     List<Match> findAllMatches();
 
-    Match findByMatchFirstUserId(Integer userId);
-    Match findByMatchSecondUserId(Integer userId);
+    List<Match> findByMatchFirstUserId(Integer userId);
+    List<Match> findByMatchSecondUserId(Integer userId);
     Optional<Match> findByMatchId(Integer matchId);
 
     Match createMatch(MatchDTO matchDTO);

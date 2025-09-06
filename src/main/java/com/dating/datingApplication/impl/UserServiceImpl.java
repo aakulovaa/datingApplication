@@ -38,6 +38,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> findUserByUserPhone(String userPhone) {
+        return userRepository.findByUserPhone(userPhone);
+    }
+
+    @Override
     public User createUser(UserDTO userDTO) {
         User user = new User();
 

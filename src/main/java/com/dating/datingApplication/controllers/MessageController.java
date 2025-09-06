@@ -30,18 +30,18 @@ public class MessageController {
     }
 
     @PutMapping("/update_message/{messageId}")
-    public ResponseEntity<Message> updeteMessage(@PathVariable("messageId") Integer messageId,@RequestBody MessageDTO messageDTO) {
-        Message updatedMessage = messageService.updeteMessage(messageId, messageDTO);
+    public ResponseEntity<Message> updateMessage(@PathVariable("messageId") Integer messageId, @RequestBody MessageDTO messageDTO) {
+        Message updatedMessage = messageService.updateMessage(messageId, messageDTO);
         return ResponseEntity.ok(updatedMessage);
     }
 
-    @GetMapping("/chat/{messageChat}")
-    public Message findByMessageChat(@PathVariable("messageChat") Integer chatId) {
+    @GetMapping("/chat/{chatId}")
+    public List<Message> findByMessageChat(@PathVariable("chatId") Integer chatId) {
         return messageService.findByMessageChatId(chatId);
     }
 
     @GetMapping("/sender/{userId}")
-    public Message findByMessageSenderId(@PathVariable("userId") Integer userId) {
+    public List<Message> findByMessageSenderId(@PathVariable("userId") Integer userId) {
         return messageService.findByMessageSenderId(userId);
     }
 
@@ -50,7 +50,7 @@ public class MessageController {
         return messageService.findByMessageId(messageId);
     }
 
-    @DeleteMapping("delete_message/{messageId}")
+    @DeleteMapping("/delete_message/{messageId}")
     public void deleteMessage(@PathVariable("messageId") Integer messageId) {
         messageService.deleteMessage(messageId);
     }

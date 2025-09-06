@@ -38,12 +38,12 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public Message findByMessageChatId(Integer chatId) {
+    public List<Message> findByMessageChatId(Integer chatId) {
         return messageRepository.findMessageByMessageChat_ChatId(chatId);
     }
 
     @Override
-    public Message findByMessageSenderId(Integer userId) {
+    public List<Message> findByMessageSenderId(Integer userId) {
         return messageRepository.findMessageByMessageSender_UserId(userId);
     }
 
@@ -69,7 +69,7 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public Message updeteMessage(Integer messageId, MessageDTO messageDTO) {
+    public Message updateMessage(Integer messageId, MessageDTO messageDTO) {
         Message message = messageRepository.findById(messageId)
                 .orElseThrow(()->new EntityNotFoundException("Message not found"));
         Chat chat = chatRepository.findById(messageDTO.getChatId())

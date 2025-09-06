@@ -11,6 +11,7 @@ public interface UserService {
 
     Optional<User> findUserByUserId(Integer userId);
     List<User> findUserByUserName(String userName);
+    List<User> findUserByUserPhone(String userPhone);
 
     User createUser(UserDTO userDTO);
 

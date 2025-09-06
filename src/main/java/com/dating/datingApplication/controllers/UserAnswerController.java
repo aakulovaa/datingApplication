@@ -31,7 +31,7 @@ public class UserAnswerController {
 
 
     @GetMapping("/find_user/{userId}")
-    public UserAnswer findByAnswerUserId(@PathVariable("userId") Integer userId) {
+    public List<UserAnswer>  findByAnswerUserId(@PathVariable("userId") Integer userId) {
         return userAnswerService.findByAnswerUserId(userId);
     }
 
@@ -42,7 +42,7 @@ public class UserAnswerController {
     }
 
 
-    @DeleteMapping("delete_answer/{answerId}")
+    @DeleteMapping("/delete_answer/{answerId}")
     public void deleteUserAnswer(@PathVariable("answerId") Integer answerId) {
         userAnswerService.deleteUserAnswer(answerId);
     }

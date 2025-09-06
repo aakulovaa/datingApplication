@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface UserAnswerService {
     List<UserAnswer> findAllUserAnswers();
 
-    UserAnswer findByAnswerUserId(Integer userId);
+    List<UserAnswer> findByAnswerUserId(Integer userId);
     Optional<UserAnswer> findByAnswerId(Integer answerId);
 
     UserAnswer createUserAnswer(UserAnswerDTO userAnswerDTO);
