@@ -9,12 +9,12 @@ import java.util.Optional;
 public interface MessageService {
     List<Message> findAllMessage();
 
-    Message findByMessageChatId(Integer chatId);
-    Message findByMessageSenderId(Integer userId);
+    List<Message> findByMessageChatId(Integer chatId);
+    List<Message> findByMessageSenderId(Integer userId);
     Optional<Message> findByMessageId(Integer messageId);
 
     Message createMessage(MessageDTO messageDTO);
-    Message updeteMessage(Integer messageId, MessageDTO messageDTO);
+    Message updateMessage(Integer messageId, MessageDTO messageDTO);
 
 
     void deleteMessage(Integer messageId);

@@ -4,8 +4,10 @@ import com.dating.datingApplication.models.Message;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Integer> {
-    Message findMessageByMessageChat_ChatId(Integer chatId);
-    Message findMessageByMessageSender_UserId(Integer userId);
+    List<Message> findMessageByMessageChat_ChatId(Integer chatId);
+    List<Message> findMessageByMessageSender_UserId(Integer userId);
 }

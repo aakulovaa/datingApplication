@@ -35,12 +35,12 @@ public class MatchController {
     }
 
     @GetMapping("/first_user/{userId}")
-    public Match findByMatchFirstUserId(@PathVariable("userId") Integer userId) {
+    public List<Match> findByMatchFirstUserId(@PathVariable("userId") Integer userId) {
         return matchService.findByMatchFirstUserId(userId);
     }
 
     @GetMapping("/second_user/{userId}")
-    public Match findByMatchSecondUserId(@PathVariable("userId") Integer userId) {
+    public List<Match> findByMatchSecondUserId(@PathVariable("userId") Integer userId) {
         return matchService.findByMatchSecondUserId(userId);
     }
 

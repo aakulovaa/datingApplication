@@ -34,12 +34,12 @@ public class MatchServiceImpl implements MatchService {
     }
 
     @Override
-    public Match findByMatchFirstUserId(Integer userId) {
+    public List<Match> findByMatchFirstUserId(Integer userId) {
         return matchRepository.findMatchByMatchFirstUser_UserId(userId);
     }
 
     @Override
-    public Match findByMatchSecondUserId(Integer userId) {
+    public List<Match> findByMatchSecondUserId(Integer userId) {
         return matchRepository.findMatchByMatchSecondUser_UserId(userId);
     }
 

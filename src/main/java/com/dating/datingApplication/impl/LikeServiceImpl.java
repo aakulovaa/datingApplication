@@ -34,12 +34,12 @@ public class LikeServiceImpl implements LikeService {
     }
 
     @Override
-    public Like findByLikeFromUserId(Integer userId) {
+    public List<Like> findByLikeFromUserId(Integer userId) {
         return likeRepository.findLikeByLikeFromUser_UserId(userId);
     }
 
     @Override
-    public Like findByLikeToUserId(Integer userId) {
+    public List<Like> findByLikeToUserId(Integer userId) {
         return likeRepository.findLikeByLikeToUser_UserId(userId);
     }
 

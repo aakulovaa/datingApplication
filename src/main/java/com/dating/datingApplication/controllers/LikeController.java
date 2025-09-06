@@ -36,12 +36,12 @@ public class LikeController {
     }
 
     @GetMapping("/from_user/{userId}")
-    public Like findByLikeFromUserId(@PathVariable("userId") Integer userId) {
+    public List<Like> findByLikeFromUserId(@PathVariable("userId") Integer userId) {
         return likeService.findByLikeFromUserId(userId);
     }
 
     @GetMapping("to_user/{userId}")
-    public Like findByLikeToUserId(@PathVariable("userId") Integer userId) {
+    public List<Like> findByLikeToUserId(@PathVariable("userId") Integer userId) {
         return likeService.findByLikeToUserId(userId);
     }
 

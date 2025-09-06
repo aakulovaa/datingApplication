@@ -31,7 +31,7 @@ public class UserAnswerController {
 
 
     @GetMapping("/find_user/{userId}")
-    public UserAnswer findByAnswerUserId(@PathVariable("userId") Integer userId) {
+    public List<UserAnswer>  findByAnswerUserId(@PathVariable("userId") Integer userId) {
         return userAnswerService.findByAnswerUserId(userId);
     }
 

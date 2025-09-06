@@ -43,7 +43,7 @@ public class UserAnswerServiceImpl implements UserAnswerService {
     }
 
     @Override
-    public UserAnswer findByAnswerUserId(Integer userId) {
+    public List<UserAnswer>  findByAnswerUserId(Integer userId) {
         return userAnswerRepository.findAnswerByAnswerUser_UserId(userId);
     }
 
