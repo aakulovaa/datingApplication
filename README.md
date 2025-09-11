@@ -6,19 +6,19 @@
 
 ### Технологии
 
-- Spring Boot
-- Spring Data JPA - для работы с базой данных
-- Maven - для управления зависимостями
-- PostgreSQL - база данных
+- `Spring Boot`
+- `Spring Data JPA` - для работы с базой данных
+- `Maven` - для управления зависимостями
+- `PostgreSQL` - база данных
 
 ### Архитектура
 
-- Models - Сущности данных
-- DTO - Data Transfer Objects
-- Repository - Интерфейсы репозиториев
-- Services - Интерфейсы сервисов
-- Impl - Реализации сервисов
-- Controllers - Контроллеры REST API
+- `Models` - Сущности данных
+- `DTO` - Data Transfer Objects
+- `Repository` - Интерфейсы репозиториев
+- `Services` - Интерфейсы сервисов
+- `Impl` - Реализации сервисов
+- `Controllers` - Контроллеры REST API
 
 Тестирование работы сервера было проведено в `Postman`: 
 
